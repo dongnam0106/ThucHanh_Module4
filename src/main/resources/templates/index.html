@@ -2,22 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 </head>
 <body>
 <h1>Danh sách thành phố</h1>
 
 <a href="/create-city">Thêm thành phố</a>
 <br>
-<!--<form th:action="@{/}">-->
-<!--    Search:-->
-<!--    <label>-->
-<!--        <input name="search" type="text" th:value="${search}"/>-->
-<!--    </label>-->
-<!--    <input type="submit" value="Search"/>-->
-<!--</form>-->
 <br/>
-<table border="1">
+<table border="1" class=".thead-light">
     <tr>
         <th>#</th>
         <th>Thành Phố</th>

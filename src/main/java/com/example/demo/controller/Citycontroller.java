@@ -32,7 +32,7 @@ public class Citycontroller {
     }
 
     @GetMapping("/")
-    public ModelAndView listCustomers(@RequestParam("search") Optional<String> search,@SortDefault(value = {"id"},direction = Sort.Direction.ASC) @PageableDefault(value = 3) Pageable pageable){
+    public ModelAndView listCustomers(@RequestParam("search") Optional<String> search,@SortDefault(value = {"id"},direction = Sort.Direction.ASC) @PageableDefault(value = 5) Pageable pageable){
         Page<City> cities;
         if(search.isPresent()){
             cities = cityService.findAllByNameContaining(search.get(), pageable);

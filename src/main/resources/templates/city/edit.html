@@ -15,6 +15,7 @@
         <table>
             <tr>
                 <td>Tên:</td>
+                <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></th:block>
                 <td><input type="text" th:field="*{name}"/></td>
             </tr>
             <tr>
@@ -30,14 +31,18 @@
             </tr>
             <tr>
                 <td>Diện tích:</td>
+                <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{area}"></th:block>
                 <td><input type="text" th:field="*{area}"/></td>
             </tr>
             <tr>
                 <td>Dân số:</td>
+                <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{population}"></th:block>
+
                 <td><input type="text" th:field="*{population}"/></td>
             </tr>
             <tr>
                 <td>GDP:</td>
+                <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{gdp}"></th:block>
                 <td><input type="text" th:field="*{gdp}"/></td>
             </tr>
             <tr>

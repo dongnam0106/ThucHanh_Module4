@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Create city</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 </head>
 <body>
     <h1>Thêm thành phố</h1>
@@ -10,13 +12,13 @@
     <th:block th:if="${message}">
         <p th:text="${message}"></p>
     </th:block>
-    <form th:action="@{/create-city}" th:object="${city}" method="post">
+    <form th:action="@{/create-city}" th:object="${city}" method="post" class=".form-control-plaintext">
         <table>
-            <tr>
-                <td>Tên:</td>
-                <td><input type="text" th:field="*{name}" /></td>
-                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
-            </tr>
+            <div>
+                <label>Tên</label>
+                <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></th:block>
+                <input type="text" th:field="*{name}" required/>
+            </div>
             <tr>
                 <td>Quốc gia:</td>
                 <td>
@@ -27,14 +29,17 @@
             </tr>
             <tr>
                 <td>Diện tích:</td>
+                <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{area}"></th:block>
                 <td><input type="text" th:field="*{area}"/></td>
             </tr>
             <tr>
                 <td>Dân số:</td>
+                <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{population}"></th:block>
                 <td><input type="text" th:field="*{population}"/></td>
             </tr>
             <tr>
                 <td>GDP:</td>
+                <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{gdp}"></th:block>
                 <td><input type="text" th:field="*{gdp}"/></td>
             </tr>
             <tr>
