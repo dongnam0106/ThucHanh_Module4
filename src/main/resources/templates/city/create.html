@@ -7,49 +7,49 @@
 
 </head>
 <body>
-    <h1>Thêm thành phố</h1>
+    <h1 class="font-italic">Thêm thành phố</h1>
     <br>
     <th:block th:if="${message}">
         <p th:text="${message}"></p>
     </th:block>
-    <form th:action="@{/create-city}" th:object="${city}" method="post" class=".form-control-plaintext">
+    <form th:action="@{/create-city}" th:object="${city}" method="post" class=".input-group-lg">
         <table>
-            <div>
-                <label>Tên</label>
-                <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></th:block>
-                <input type="text" th:field="*{name}" required/>
-            </div>
             <tr>
-                <td>Quốc gia:</td>
+                <td class="input-group-text">Tên</td>
+                <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></th:block>
+                <td><input type="text" th:field="*{name}" required class="form-control"/></td>
+            </tr>
+            <tr>
+                <td class="input-group-text">Quốc gia:</td>
                 <td>
                     <select th:field="*{country}">
-                        <option th:each="c : ${countries}" th:value="${c.id}" th:text="${c.name}"></option>
+                        <option th:each="c : ${countries}" th:value="${c.id}" th:text="${c.name}" class="form-control"></option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <td>Diện tích:</td>
+                <td class="input-group-text">Diện tích:</td>
                 <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{area}"></th:block>
-                <td><input type="text" th:field="*{area}"/></td>
+                <td><input type="text" th:field="*{area}" class="form-control"/></td>
             </tr>
             <tr>
-                <td>Dân số:</td>
+                <td class="input-group-text">Dân số:</td>
                 <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{population}"></th:block>
-                <td><input type="text" th:field="*{population}"/></td>
+                <td><input type="text" th:field="*{population}" class="form-control"/></td>
             </tr>
             <tr>
-                <td>GDP:</td>
+                <td class="input-group-text">GDP:</td>
                 <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{gdp}"></th:block>
-                <td><input type="text" th:field="*{gdp}"/></td>
+                <td><input type="text" th:field="*{gdp}" class="form-control"/></td>
             </tr>
             <tr>
-                <td>Giới thiệu:</td>
-                <td><textarea rows="5" cols="25" th:field="*{introduce}"></textarea></td>
+                <td class="input-group-text">Giới thiệu:</td>
+                <td><textarea rows="5" cols="25" th:field="*{introduce}" class="form-control"></textarea></td>
 
             </tr>
             <tr>
-                <td><input type="submit" value="Nhập thành phố"></td>
-                <td><button><a href="/" style="text-decoration: none">Thoát</a></button></td>
+                <td><input type="submit" value="Nhập thành phố" class="btn btn-success"></td>
+                <td><a href="/" style="text-decoration: none" class="btn btn-danger">Thoát</a></td>
             </tr>
         </table>
     </form>

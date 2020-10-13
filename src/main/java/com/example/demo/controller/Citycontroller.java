@@ -12,6 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -64,7 +65,12 @@ public class Citycontroller {
     }
 
     @PostMapping("/create-city")
-    public ModelAndView saveCustomer(@ModelAttribute("customer") City city){
+    public ModelAndView saveCustomer(@ModelAttribute("customer") City city, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            ModelAndView modelAndView = new ModelAndView("create-city");
+            modelAndView.addObject("city", city);
+            return modelAndView;
+        }
         cityService.save(city);
         ModelAndView modelAndView = new ModelAndView("city/create");
         modelAndView.addObject("city", new City());
